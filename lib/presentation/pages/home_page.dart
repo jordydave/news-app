@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:technical_test/presentation/bloc/news_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:technical_test/utils/string_ext.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,13 +47,20 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/detail',
+                            arguments: news,
+                          );
+                        },
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 10, top: 10),
                           padding: const EdgeInsets.only(bottom: 10, top: 10),
                           height: 200,
                           width: double.infinity,
                           child: CachedNetworkImage(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                             imageUrl: "${news.contentThumbnail}",
                             placeholder: (context, url) => const Center(
                               child: CircularProgressIndicator(),
@@ -63,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        news.title?.toUpperCase() ?? '',
+                        news.title?.capitalize() ?? '',
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
