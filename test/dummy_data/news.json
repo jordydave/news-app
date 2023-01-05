@@ -1,0 +1,16 @@
+[
+    {
+      "id": "1",
+      "createdAt": "1",
+      "contributorName": "contributorName",
+      "contributorAvatar": "contributorAvatar",
+      "title": "title",
+      "content": "content",
+      "contentThumbnail": "contentThumbnail",
+      "slideshow": [
+        "http://placeimg.com/640/480/nature",
+        "http://placeimg.com/640/480/nature",
+        "http://placeimg.com/640/480/nature"
+      ]
+    }
+  ]
